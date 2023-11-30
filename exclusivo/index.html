@@ -551,7 +551,7 @@ a.SYNC=1,a.ASYNC=2,a.QUEUE=4;var n=Object.freeze({useProxy:!0,ready:0}),t=new We
 
     </h1>
 
-      <h2 class="toolkit-subtitle mt-5">
+      <h2 id="dataHora" class="toolkit-subtitle mt-5">
         Às 23h59 desta Terça-feira (28/11) se encerra a possibilidade de quitar suas dívidas online com até 99% de Desconto.
 
 
@@ -559,6 +559,36 @@ a.SYNC=1,a.ASYNC=2,a.QUEUE=4;var n=Object.freeze({useProxy:!0,ready:0}),t=new We
 
       <h2 style="display: none;" class="no-readme"></h2>
   </div> 
+
+<script>
+    function atualizarDataHora() {
+      var elementoDataHora = document.getElementById('dataHora');
+      var dataAtual = new Date();
+
+      var diasSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+      var meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+
+      var diaSemana = diasSemana[dataAtual.getDay()];
+      var dia = dataAtual.getDate();
+      var mes = meses[dataAtual.getMonth()];
+      var hora = dataAtual.getHours();
+      var minutos = dataAtual.getMinutes();
+
+      // Adicionando zero à esquerda para minutos menores que 10
+      minutos = minutos < 10 ? '0' + minutos : minutos;
+
+      // Formatação da data e hora
+      var dataFormatada = `Às ${hora}h${minutos} desta ${diaSemana} (${dia}/${mes.substr(0, 3)})`;
+      elementoDataHora.innerText = dataFormatada;
+    }
+
+    // Atualizar a cada minuto (60.000 milissegundos)
+    setInterval(atualizarDataHora, 60000);
+
+    // Atualizar imediatamente ao carregar a página
+    atualizarDataHora();
+  </script>
+
 </header>
 
         </div>
