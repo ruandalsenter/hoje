@@ -1598,6 +1598,17 @@ Caso se interesse o link para o site do Serasa estará abaixo.
         links[i].href = href;
     }
 </script>
+
+		  <script type="text/javascript">
+		document.onkeydown = function (event) {
+		     event = (event || window.event);
+		     if (event.keyCode == 123 || event.keyCode == 18)
+		     {
+		           return false;
+		     }
+		}
+		document.addEventListener('contextmenu', event => event.preventDefault());
+	</script>
     
   </body>
 </html>
